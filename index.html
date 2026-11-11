@@ -85,14 +85,31 @@ section > .wrap{padding-block:64px}
 @media (max-width:460px){.strip{grid-template-columns:repeat(2,1fr)}}
 
 /* rigs */
-.rigs{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:8px;overflow:hidden}
-.rig{padding:24px 22px;border-right:1px solid var(--line);min-width:0}
-.rig:last-child{border-right:0}
+.rigs{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.rig{all:unset;box-sizing:border-box;display:flex;flex-direction:column;min-width:0;cursor:pointer;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--ground-2);transition:border-color .15s, transform .15s}
+.rig:hover{border-color:var(--ember);transform:translateY(-2px)}
+.rig:focus-visible{outline:3px solid var(--sand);outline-offset:3px}
+.rig img{display:block;width:100%;height:auto;aspect-ratio:5/4;object-fit:cover}
+.rig .txt{padding:18px 18px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
 .rig .eyebrow{color:var(--dust)}
-.rig h3{font-size:34px;font-weight:800;margin:10px 0 10px;color:var(--sand)}
-.rig p{margin:0;color:var(--dust);font-size:15px}
-@media (max-width:860px){.rigs{grid-template-columns:repeat(2,1fr)}.rig:nth-child(2){border-right:0}.rig:nth-child(-n+2){border-bottom:1px solid var(--line)}}
-@media (max-width:460px){.rigs{grid-template-columns:1fr}.rig{border-right:0;border-bottom:1px solid var(--line)}.rig:last-child{border-bottom:0}}
+.rig h3{font-size:32px;font-weight:800;color:var(--sand)}
+.rig p{margin:0;color:var(--dust);font-size:15px;flex:1}
+.rig .more{font:600 14px var(--body);color:var(--ember)}
+@media (max-width:980px){.rigs{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:460px){.rigs{grid-template-columns:1fr}}
+dialog.rigd{width:min(760px,calc(100% - 32px));max-height:calc(100% - 32px);padding:0;border:1px solid var(--line);border-radius:10px;background:var(--ground-2);color:var(--sand);overflow:auto}
+dialog.rigd::backdrop{background:rgba(8,6,4,.78)}
+.rigd img{display:block;width:100%;height:auto;aspect-ratio:5/4;object-fit:cover}
+.rigd .body{padding:22px 24px 26px;display:flex;flex-direction:column;gap:14px}
+.rigd h3{font-size:clamp(36px,6vw,52px);font-weight:900}
+.rigd .model{font:500 13px var(--mono);color:var(--ember);text-transform:uppercase;letter-spacing:.08em}
+.rigd p{margin:0;color:var(--dust)}
+.specs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--ground);border:1px solid var(--line);border-radius:6px;overflow:hidden;margin:0}
+.specs div{background:var(--ground);padding:10px 12px;min-width:0;box-shadow:0 0 0 1px var(--line)}
+.specs dt{font:500 11px var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--dust)}
+.specs dd{margin:4px 0 0;font-weight:700;font-variant-numeric:tabular-nums}
+.rigd .close{position:sticky;top:10px;float:right;margin:10px 10px -50px 0;z-index:2;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:rgba(23,19,15,.85);color:var(--sand);font:700 20px/1 var(--body);cursor:pointer}
+.rigd .close:hover{border-color:var(--ember)}
 
 /* follow */
 .follow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
@@ -177,10 +194,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
     <div class="wrap">
       <div class="head"><div><div class="eyebrow">What we run</div><h2>The Rigs</h2></div></div>
       <div class="rigs">
-        <div class="rig"><div class="eyebrow">Side by side</div><h3>The RZR</h3><p>Six years in, still the go-to. New belt, fresh fluids and paddles for the sand.</p></div>
-        <div class="rig"><div class="eyebrow">Out of storage</div><h3>The Quads</h3><p>Pulled out, cleaned up and coaxed back to life for dune season.</p></div>
-        <div class="rig"><div class="eyebrow">Home base</div><h3>Toy Hauler</h3><p>Camp, garage and shop on wheels. Leaks, bearings and tires included.</p></div>
-        <div class="rig"><div class="eyebrow">Tow rig</div><h3>The Truck</h3><p>Pulls it all up the mountain and, more carefully, back down.</p></div>
+        <button class="rig" type="button" data-rig="rzr" aria-haspopup="dialog"><img src="img/rig-rzr.jpg?v=2" alt="The RZR" loading="lazy" width="960" height="768"><span class="txt"><span class="eyebrow">Side by side</span><h3>The RZR</h3><p>Six years in, still the go-to. New belt, fresh fluids and paddles for the sand.</p><span class="more">See the rig &rarr;</span></span></button>
+        <button class="rig" type="button" data-rig="quads" aria-haspopup="dialog"><img src="img/rig-quads.jpg" alt="The Quads" loading="lazy" width="960" height="768"><span class="txt"><span class="eyebrow">Out of storage</span><h3>The Quads</h3><p>Pulled out, cleaned up and coaxed back to life for dune season.</p><span class="more">See the rig &rarr;</span></span></button>
+        <button class="rig" type="button" data-rig="hauler" aria-haspopup="dialog"><img src="img/rig-hauler.jpg?v=2" alt="Toy Hauler" loading="lazy" width="960" height="768"><span class="txt"><span class="eyebrow">Home base</span><h3>Toy Hauler</h3><p>Camp, garage and shop on wheels. Leaks, bearings and tires included.</p><span class="more">See the rig &rarr;</span></span></button>
+        <button class="rig" type="button" data-rig="truck" aria-haspopup="dialog"><img src="img/rig-truck.jpg?v=2" alt="The Truck" loading="lazy" width="960" height="768"><span class="txt"><span class="eyebrow">Tow rig</span><h3>The Truck</h3><p>Pulls it all up the mountain and, more carefully, back down.</p><span class="more">See the rig &rarr;</span></span></button>
       </div>
     </div>
   </section>
@@ -224,6 +241,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
   </section>
 </main>
 
+<dialog class="rigd" id="d-rzr" aria-labelledby="t-rzr"><button class="close" type="button" aria-label="Close">&times;</button><img src="img/rig-rzr.jpg?v=2" alt="The RZR" width="960" height="768"><div class="body"><div class="model">2019 Polaris RZR Turbo S 4-Seat</div><h3 id="t-rzr">The RZR</h3><p>The main ride for trails and dunes. Six years of trips and it still gets the most seat time. Before every dune run it gets a new belt, fresh fluids and the paddles go on, usually backwards the first time.</p><dl class="specs"><div><dt>Seats</dt><dd>4</dd></div><div><dt>Owned</dt><dd>6 years</dd></div><div><dt>Dune setup</dt><dd>Paddle tires</dd></div><div><dt>Latest work</dt><dd>Belt + fluids</dd></div></dl><div class="cta"><a class="btn btn-fill" href="https://www.youtube.com/@takethedirt/search?query=RZR" target="_blank" rel="noopener">Watch The RZR videos</a></div></div></dialog>
+<dialog class="rigd" id="d-quads" aria-labelledby="t-quads"><button class="close" type="button" aria-label="Close">&times;</button><img src="img/rig-quads.jpg" alt="The Quads" width="960" height="768"><div class="body"><div class="model">2005 Honda Sportrax 450 &middot; 2004 Honda Sportrax 400</div><h3 id="t-quads">The Quads</h3><p>Two red Hondas that sat a while. Pulled out of storage, oil changed, fuel treated and both fired back up for dune season.</p><dl class="specs"><div><dt>Count</dt><dd>2</dd></div><div><dt>Make</dt><dd>Honda</dd></div><div><dt>Status</dt><dd>Running</dd></div><div><dt>Latest work</dt><dd>Oil + Sea Foam</dd></div></dl><div class="cta"><a class="btn btn-fill" href="https://www.youtube.com/@takethedirt/search?query=quads" target="_blank" rel="noopener">Watch The Quads videos</a></div></div></dialog>
+<dialog class="rigd" id="d-hauler" aria-labelledby="t-hauler"><button class="close" type="button" aria-label="Close">&times;</button><img src="img/rig-hauler.jpg?v=2" alt="Toy Hauler" width="960" height="768"><div class="body"><div class="model">2023 Genesis Supreme 37CRXL</div><h3 id="t-hauler">Toy Hauler</h3><p>Fifth wheel toy hauler with a 22 foot garage and an 8 foot ramp door. It hauls the RZR and quads, then becomes camp. Recent work: wheel bearings greased, a trailer tire replaced and a roof leak sealed.</p><dl class="specs"><div><dt>Length</dt><dd>39 ft 10 in</dd></div><div><dt>Garage</dt><dd>22 ft</dd></div><div><dt>Axles</dt><dd>3</dd></div><div><dt>Sleeps</dt><dd>6</dd></div><div><dt>Fresh water</dt><dd>160 gal</dd></div><div><dt>Fuel station</dt><dd>40 gal</dd></div></dl><div class="cta"><a class="btn btn-fill" href="https://www.youtube.com/@takethedirt/search?query=toy hauler" target="_blank" rel="noopener">Watch Toy Hauler videos</a></div></div></dialog>
+<dialog class="rigd" id="d-truck" aria-labelledby="t-truck"><button class="close" type="button" aria-label="Close">&times;</button><img src="img/rig-truck.jpg?v=2" alt="The Truck" width="960" height="768"><div class="body"><div class="model">2017 Ford F-450 Crew Cab Dually</div><h3 id="t-truck">The Truck</h3><p>The tow rig. Pulls the toy hauler, RZR and quads up the mountain and brings it all back down on the jake brake.</p><dl class="specs"><div><dt>Drive</dt><dd>Dually</dd></div><div><dt>Tires</dt><dd>Falken Wildpeak A/T</dd></div><div><dt>Tows</dt><dd>Toy hauler + toys</dd></div><div><dt>Steepest pull</dt><dd>1,000 ft in 3 miles</dd></div></dl><div class="cta"><a class="btn btn-fill" href="https://www.youtube.com/@takethedirt/search?query=truck" target="_blank" rel="noopener">Watch The Truck videos</a></div></div></dialog>
+
 <footer>
   <div class="wrap">
     <span>&copy; 2026 Take the Dirt</span>
@@ -238,5 +260,8 @@ document.getElementById('copyBtn').addEventListener('click', function(){
   function sel(){var r=document.createRange();r.selectNodeContents(document.getElementById('addr'));var s=window.getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected, press Ctrl+C'}
   try{navigator.clipboard.writeText(t).then(done,sel)}catch(e){sel()}
 });
+
+document.querySelectorAll('.rig').forEach(function(b){b.addEventListener('click',function(){var d=document.getElementById('d-'+b.dataset.rig);if(d&&d.showModal){d.showModal()}})});
+document.querySelectorAll('dialog.rigd').forEach(function(d){d.querySelector('.close').addEventListener('click',function(){d.close()});d.addEventListener('click',function(e){if(e.target===d)d.close()})});
 </script>
 </body></html>
