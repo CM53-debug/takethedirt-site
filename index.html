@@ -1,0 +1,242 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>body{margin:0}img{max-width:100%}</style>
+<title>Take the Dirt</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Off-road, hunting and dune trips in Arizona. RZRs, quads, elk camp and everything that breaks along the way.">
+<link rel="icon" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: trailhead sign — dark earth ground, one burnt-orange accent, vertical shorts strip like a filmstrip of the trail */
+:root{
+  color-scheme: dark;
+  --ground:#17130f;      /* charred dirt */
+  --ground-2:#211b15;    /* raised panel */
+  --line:#3a3027;        /* trail rule */
+  --sand:#efe4d2;        /* text */
+  --dust:#b8a68f;        /* muted text */
+  --ember:#ec7a2d;       /* logo orange */
+  --ember-ink:#1a0f05;
+  --display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
+  --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --wrap:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{background:var(--ground);color:var(--sand);font:16px/1.6 var(--body);
+  background-image:repeating-radial-gradient(circle at 85% -10%, transparent 0 38px, rgba(239,228,210,.035) 38px 39px);
+}
+a{color:inherit}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);text-transform:uppercase;line-height:.92;letter-spacing:.01em;margin:0;text-wrap:balance}
+.eyebrow{font:500 12px/1.2 var(--mono);text-transform:uppercase;letter-spacing:.14em;color:var(--ember)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 20px;border-radius:6px;font-weight:700;font-size:15px;text-decoration:none;border:2px solid var(--ember);transition:transform .15s, background .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn:focus-visible,a:focus-visible,button:focus-visible{outline:3px solid var(--sand);outline-offset:3px}
+.btn-fill{background:var(--ember);color:var(--ember-ink)}
+.btn-line{color:var(--sand)}
+.btn-line:hover{background:rgba(236,122,45,.12)}
+.btn svg{width:20px;height:20px;flex:none}
+
+/* top bar */
+.top{border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{width:46px;height:46px}
+.brand span{font:800 24px/1 var(--display);text-transform:uppercase;letter-spacing:.03em}
+.nav{display:flex;gap:22px;align-items:center;font-size:14px;font-weight:600}
+.nav a{text-decoration:none;color:var(--dust)}
+.nav a:hover{color:var(--sand)}
+.nav a.btn{color:var(--ember-ink);padding:10px 16px}
+@media (max-width:720px){.nav a.hide-sm{display:none}}
+
+/* hero */
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center;padding-block:64px 56px}
+.hero h1{font-size:clamp(64px,11vw,132px);font-weight:900;margin:14px 0 18px}
+.hero h1 em{font-style:normal;color:var(--ember)}
+.lead{font-size:clamp(17px,2vw,20px);color:var(--dust);max-width:34ch;margin:0 0 28px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.feature{display:block;text-decoration:none;min-width:0}
+.feature figure{margin:0;border-radius:8px;overflow:hidden;border:1px solid var(--line);background:var(--ground-2)}
+.feature img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;transition:transform .4s}
+.feature:hover img{transform:scale(1.03)}
+.feature figcaption{display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding:14px 16px}
+.feature figcaption b{font:800 22px/1 var(--display);text-transform:uppercase}
+.feature figcaption span{font:500 12px var(--mono);color:var(--ember);text-transform:uppercase;letter-spacing:.1em;white-space:nowrap}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr;gap:36px;padding-block:40px}}
+
+/* section shell */
+section{border-top:1px solid var(--line)}
+section > .wrap{padding-block:64px}
+.head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:28px}
+.head h2{font-size:clamp(40px,6vw,64px);font-weight:800;margin-top:8px}
+.head a{font-weight:600;font-size:15px;color:var(--ember);text-decoration:none}
+.head a:hover{text-decoration:underline}
+
+/* shorts strip */
+.strip{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.short{position:relative;display:block;border-radius:8px;overflow:hidden;border:1px solid var(--line);text-decoration:none;background:var(--ground-2)}
+.short img{display:block;width:100%;height:auto;aspect-ratio:9/16;object-fit:cover;transition:transform .4s}
+.short:hover img{transform:scale(1.04)}
+.short p{position:absolute;inset:auto 0 0 0;margin:0;padding:28px 12px 12px;font-size:13px;font-weight:600;line-height:1.3;background:linear-gradient(transparent,rgba(10,8,6,.92))}
+@media (max-width:980px){.strip{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:460px){.strip{grid-template-columns:repeat(2,1fr)}}
+
+/* rigs */
+.rigs{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.rig{padding:24px 22px;border-right:1px solid var(--line);min-width:0}
+.rig:last-child{border-right:0}
+.rig .eyebrow{color:var(--dust)}
+.rig h3{font-size:34px;font-weight:800;margin:10px 0 10px;color:var(--sand)}
+.rig p{margin:0;color:var(--dust);font-size:15px}
+@media (max-width:860px){.rigs{grid-template-columns:repeat(2,1fr)}.rig:nth-child(2){border-right:0}.rig:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+@media (max-width:460px){.rigs{grid-template-columns:1fr}.rig{border-right:0;border-bottom:1px solid var(--line)}.rig:last-child{border-bottom:0}}
+
+/* follow */
+.follow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.plat{display:flex;align-items:center;gap:14px;padding:18px;border:1px solid var(--line);border-radius:8px;text-decoration:none;background:var(--ground-2);transition:border-color .15s}
+.plat:hover{border-color:var(--ember)}
+.plat svg{width:28px;height:28px;flex:none;color:var(--ember)}
+.plat b{display:block;font-size:16px}
+.plat small{color:var(--dust);font:500 12px var(--mono)}
+@media (max-width:860px){.follow{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:420px){.follow{grid-template-columns:1fr}}
+
+/* work with us */
+.partner .wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.partner p{color:var(--dust);max-width:52ch;margin:16px 0 0}
+.mail{background:var(--ground-2);border:1px solid var(--line);border-radius:8px;padding:24px;min-width:0}
+.mail .addr{display:block;font:800 clamp(26px,4vw,36px)/1.1 var(--display);text-transform:none;letter-spacing:.01em;margin:10px 0 18px;word-break:break-all;user-select:all}
+.copy{font:600 14px var(--body);cursor:pointer;background:transparent}
+@media (max-width:860px){.partner .wrap{grid-template-columns:1fr}}
+
+footer{border-top:1px solid var(--line);color:var(--dust);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-block:28px}
+</style>
+</head><body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Take the Dirt home">
+      <img src="img/logo.png" alt="Take the Dirt compass logo" width="46" height="46">
+      <span>Take the Dirt</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a class="hide-sm" href="#videos">Videos</a>
+      <a class="hide-sm" href="#rigs">The rigs</a>
+      <a class="hide-sm" href="#partner">Work with us</a>
+      <a class="btn btn-fill" href="https://www.youtube.com/@takethedirt" target="_blank" rel="noopener">Subscribe</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Arizona &middot; Off-road &middot; Hunting &middot; Dunes</div>
+        <h1>Take the <em>Dirt</em></h1>
+        <p class="lead">Off-road, hunting and dune trips in Arizona. RZRs, quads, elk camp and everything that breaks along the way.</p>
+        <div class="cta">
+          <a class="btn btn-fill" href="https://www.youtube.com/@takethedirt" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8ZM9.7 15.1V8.9l5.8 3.1-5.8 3.1Z"/></svg>
+            Watch on YouTube
+          </a>
+          <a class="btn btn-line" href="#follow">Follow @takethedirt</a>
+        </div>
+      </div>
+      <a class="feature" href="https://www.youtube.com/@takethedirt/videos" target="_blank" rel="noopener">
+        <figure>
+          <img src="img/dunes-prep.jpg" alt="Getting ready for the dunes: a shredded trailer tire" width="1280" height="720">
+          <figcaption><b>Getting Ready for the Dunes</b><span>Full video</span></figcaption>
+        </figure>
+      </a>
+    </div>
+  </div>
+
+  <section id="videos">
+    <div class="wrap">
+      <div class="head">
+        <div><div class="eyebrow">Latest from the trail</div><h2>Recent Shorts</h2></div>
+        <a href="https://www.youtube.com/@takethedirt/shorts" target="_blank" rel="noopener">See all Shorts &rarr;</a>
+      </div>
+      <div class="strip">
+        <a class="short" href="https://www.youtube.com/@takethedirt/shorts" target="_blank" rel="noopener"><img src="img/towing.jpg" alt="" loading="lazy" width="480" height="854"><p>Towing Down the Mountain</p></a>
+        <a class="short" href="https://www.youtube.com/@takethedirt/shorts" target="_blank" rel="noopener"><img src="img/sit-still.jpg" alt="" loading="lazy" width="480" height="854"><p>None of Us Can Sit Still</p></a>
+        <a class="short" href="https://www.youtube.com/@takethedirt/shorts" target="_blank" rel="noopener"><img src="img/arizona-rain.jpg" alt="" loading="lazy" width="480" height="854"><p>Never Seen Arizona Like This</p></a>
+        <a class="short" href="https://www.youtube.com/@takethedirt/shorts" target="_blank" rel="noopener"><img src="img/stuck-mud.jpg" alt="" loading="lazy" width="480" height="854"><p>Stuck in the Mud After 24 Hours of Rain</p></a>
+        <a class="short" href="https://www.youtube.com/@takethedirt/shorts" target="_blank" rel="noopener"><img src="img/six-years.jpg" alt="" loading="lazy" width="480" height="854"><p>6 Years Since Our Last Hunt</p></a>
+        <a class="short" href="https://www.youtube.com/@takethedirt/shorts" target="_blank" rel="noopener"><img src="img/look-found.jpg" alt="" loading="lazy" width="480" height="854"><p>Look What I Found</p></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="rigs">
+    <div class="wrap">
+      <div class="head"><div><div class="eyebrow">What we run</div><h2>The Rigs</h2></div></div>
+      <div class="rigs">
+        <div class="rig"><div class="eyebrow">Side by side</div><h3>The RZR</h3><p>Six years in, still the go-to. New belt, fresh fluids and paddles for the sand.</p></div>
+        <div class="rig"><div class="eyebrow">Out of storage</div><h3>The Quads</h3><p>Pulled out, cleaned up and coaxed back to life for dune season.</p></div>
+        <div class="rig"><div class="eyebrow">Home base</div><h3>Toy Hauler</h3><p>Camp, garage and shop on wheels. Leaks, bearings and tires included.</p></div>
+        <div class="rig"><div class="eyebrow">Tow rig</div><h3>The Truck</h3><p>Pulls it all up the mountain and, more carefully, back down.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="follow">
+    <div class="wrap">
+      <div class="head"><div><div class="eyebrow">One handle everywhere</div><h2>Follow @takethedirt</h2></div></div>
+      <div class="follow">
+        <a class="plat" href="https://www.youtube.com/@takethedirt" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8ZM9.7 15.1V8.9l5.8 3.1-5.8 3.1Z"/></svg>
+          <span><b>YouTube</b><small>Full videos + Shorts</small></span></a>
+        <a class="plat" href="https://www.instagram.com/takethedirt" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          <span><b>Instagram</b><small>Reels</small></span></a>
+        <a class="plat" href="https://www.tiktok.com/@takethedirt" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 2h-3.3v13.2a2.9 2.9 0 1 1-2.1-2.8V9a6.3 6.3 0 1 0 5.4 6.2V8.6a7.9 7.9 0 0 0 4.4 1.3V6.6a4.4 4.4 0 0 1-4.4-4.6Z"/></svg>
+          <span><b>TikTok</b><small>Short clips</small></span></a>
+        <a class="plat" href="https://www.facebook.com/profile.php?id=61594636972075" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8.5V6.7c0-.8.5-1 .9-1h2.4V2h-3.3C10.4 2 9.6 4.7 9.6 6.4v2.1H7.5v3.8h2.1V22H14v-9.7h2.9l.4-3.8H14Z"/></svg>
+          <span><b>Facebook</b><small>Reels + updates</small></span></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="partner" class="partner">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Brands &amp; sponsors</div>
+        <h2 style="font-size:clamp(40px,6vw,64px);font-weight:800;margin-top:8px">Work With Us</h2>
+        <p>Off-road, hunting, camping and towing gear gets used hard here, on real trips, in real Arizona weather. If your product belongs on the trail, send a note.</p>
+      </div>
+      <div class="mail">
+        <div class="eyebrow">Email</div>
+        <span class="addr" id="addr">hello@takethedirt.com</span>
+        <div class="cta">
+          <a class="btn btn-fill" href="mailto:hello@takethedirt.com">Send an email</a>
+          <button class="btn btn-line copy" id="copyBtn" type="button">Copy address</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Take the Dirt</span>
+    <span>Born and raised in Arizona.</span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('copyBtn').addEventListener('click', function(){
+  var b=this, t='hello@takethedirt.com';
+  function done(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy address'},1800)}
+  function sel(){var r=document.createRange();r.selectNodeContents(document.getElementById('addr'));var s=window.getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected, press Ctrl+C'}
+  try{navigator.clipboard.writeText(t).then(done,sel)}catch(e){sel()}
+});
+</script>
+</body></html>
